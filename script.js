@@ -132,7 +132,12 @@ function displayBelow(e){
 
         };break;
         case 'equals':{
-            nums.innerText = result;
+            let aboves = expression.innerText.split('');
+            for(let above of aboves){
+                if(['+','-','×','÷','%'].includes(above)){
+                    nums.innerText = result;
+                }
+            }
         };break;
         case 'clear':{
             if(nums.innerText.length === 1){
@@ -245,11 +250,11 @@ function display(){
         displayAbove(e);
         displayBelow(e);
     })
-    window.addEventListener('keydown',(e)=>{
-        // console.log(e.key);
-        displayAbove(e);
-        displayBelow(e);
-    })
+    // window.addEventListener('keydown',(e)=>{
+    //     // console.log(e.key);
+    //     displayAbove(e);
+    //     displayBelow(e);
+    // })
 
 }
 display();
